@@ -1,5 +1,5 @@
-import 'package:cricket_score/UI/values/values.dart';
 import 'package:flutter/material.dart';
+import 'package:sportapp/UI/values/values.dart';
 
 class Styles {
   static final appTheme = _baseTheme.copyWith(
@@ -15,8 +15,8 @@ class Styles {
   );
 
   static final secondaryTextTheme = _baseTextTheme.apply(
-    displayColor: MyColors.gray300,
-    bodyColor: MyColors.gray300,
+    displayColor: MyColors.grey300,
+    bodyColor: MyColors.grey300,
   );
 
   static final onSecondaryTextTheme = _baseTextTheme.apply(
@@ -25,13 +25,13 @@ class Styles {
   );
 
   static const _colorScheme = ColorScheme.light(
-    primary: MyColors.white,
-    primaryVariant: MyColors.gray,
-    secondary: MyColors.yellow400,
-    secondaryVariant: MyColors.yellow400,
-    onPrimary: MyColors.gray900,
-    onSecondary: Colors.white,
-    onBackground: MyColors.gray900,
+    primary: MyColors.black,
+    primaryVariant: MyColors.grey,
+    secondary: MyColors.yellow900,
+    secondaryVariant: MyColors.yellow900,
+    onPrimary: MyColors.white,
+    onSecondary: MyColors.grey300,
+    onBackground: MyColors.grey300,
   );
 
   static final _baseTheme = ThemeData.from(
