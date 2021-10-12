@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sportapp/UI/Splash_screen.dart';
 import 'package:sportapp/UI/home_page/home_page.dart';
 import 'package:sportapp/UI/values/values.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: Styles.appTheme,
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: SplashScreen(),
     );
   }
 }

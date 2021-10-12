@@ -25,10 +25,14 @@ class _HomePageState extends State<HomePage> {
     DateTime tomorrowAfter = today.add(Duration(days: 2));
 
     return Scaffold(
+
+      
       appBar: AppBar(
+        elevation: 0.0,
+      backgroundColor: Colors.grey[700],
         title: Text(Strings.home_title),
       ),
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: Colors.grey[700],
       body: (Column(
         children: [
           Row(
