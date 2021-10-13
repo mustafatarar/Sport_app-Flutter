@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sportapp/UI/calendar_date_page/calendar_date_page.dart';
+import 'package:sportapp/UI/home_page/components/football_event_widget.dart';
 import 'package:sportapp/UI/values/values.dart';
 
 class HomePage extends StatefulWidget {
@@ -25,156 +26,228 @@ class _HomePageState extends State<HomePage> {
     DateTime tomorrowAfter = today.add(Duration(days: 2));
 
     return Scaffold(
-
-      
       appBar: AppBar(
         elevation: 0.0,
-      backgroundColor: Colors.grey[700],
+        backgroundColor: Colors.grey[700],
         title: Text(Strings.home_title),
       ),
       backgroundColor: Colors.grey[700],
-      body: (Column(
-        children: [
-          Row(
-            children: [
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    todaySelected = false;
-                    yesterdaySelected = false;
-                    beforeYesterdaySelected = false;
-                    tomorrowSelected = false;
-                    tomorrowAfterSelected = false;
-                    liveSelected = true;
-                  });
-                },
-                child: liveWidget(
-                  selected: liveSelected,
+      body: SingleChildScrollView(
+        child: (Column(
+          children: [
+            Row(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      todaySelected = false;
+                      yesterdaySelected = false;
+                      beforeYesterdaySelected = false;
+                      tomorrowSelected = false;
+                      tomorrowAfterSelected = false;
+                      liveSelected = true;
+                    });
+                  },
+                  child: liveWidget(
+                    selected: liveSelected,
+                  ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    todaySelected = false;
-                    yesterdaySelected = false;
-                    beforeYesterdaySelected = true;
-                    tomorrowSelected = false;
-                    tomorrowAfterSelected = false;
-                    liveSelected = false;
-                  });
-                },
-                child: DateDayWidget(
-                  date: beforeYesterday.day.toString(),
-                  day: getWeekday(dayNumber: beforeYesterday.weekday),
-                  month: getMonthName(beforeYesterday.month),
-                  selected: beforeYesterdaySelected,
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      todaySelected = false;
+                      yesterdaySelected = false;
+                      beforeYesterdaySelected = true;
+                      tomorrowSelected = false;
+                      tomorrowAfterSelected = false;
+                      liveSelected = false;
+                    });
+                  },
+                  child: DateDayWidget(
+                    date: beforeYesterday.day.toString(),
+                    day: getWeekday(dayNumber: beforeYesterday.weekday),
+                    month: getMonthName(beforeYesterday.month),
+                    selected: beforeYesterdaySelected,
+                  ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    todaySelected = false;
-                    yesterdaySelected = true;
-                    beforeYesterdaySelected = false;
-                    tomorrowSelected = false;
-                    tomorrowAfterSelected = false;
-                    liveSelected = false;
-                  });
-                },
-                child: DateDayWidget(
-                  date: yesterday.day.toString(),
-                  day: getWeekday(dayNumber: yesterday.weekday),
-                  month: getMonthName(yesterday.month),
-                  selected: yesterdaySelected,
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      todaySelected = false;
+                      yesterdaySelected = true;
+                      beforeYesterdaySelected = false;
+                      tomorrowSelected = false;
+                      tomorrowAfterSelected = false;
+                      liveSelected = false;
+                    });
+                  },
+                  child: DateDayWidget(
+                    date: yesterday.day.toString(),
+                    day: getWeekday(dayNumber: yesterday.weekday),
+                    month: getMonthName(yesterday.month),
+                    selected: yesterdaySelected,
+                  ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    todaySelected = true;
-                    yesterdaySelected = false;
-                    beforeYesterdaySelected = false;
-                    tomorrowSelected = false;
-                    tomorrowAfterSelected = false;
-                    liveSelected = false;
-                  });
-                },
-                child: DateDayWidget(
-                  date: today.day.toString(),
-                  day: "TODAY",
-                  month: getMonthName(today.month),
-                  selected: todaySelected,
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      todaySelected = true;
+                      yesterdaySelected = false;
+                      beforeYesterdaySelected = false;
+                      tomorrowSelected = false;
+                      tomorrowAfterSelected = false;
+                      liveSelected = false;
+                    });
+                  },
+                  child: DateDayWidget(
+                    date: today.day.toString(),
+                    day: "TODAY",
+                    month: getMonthName(today.month),
+                    selected: todaySelected,
+                  ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    todaySelected = false;
-                    yesterdaySelected = false;
-                    beforeYesterdaySelected = false;
-                    tomorrowSelected = true;
-                    tomorrowAfterSelected = false;
-                    liveSelected = false;
-                  });
-                },
-                child: DateDayWidget(
-                  date: tomorrow.day.toString(),
-                  day: getWeekday(dayNumber: tomorrow.weekday),
-                  month: getMonthName(tomorrow.month),
-                  selected: tomorrowSelected,
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      todaySelected = false;
+                      yesterdaySelected = false;
+                      beforeYesterdaySelected = false;
+                      tomorrowSelected = true;
+                      tomorrowAfterSelected = false;
+                      liveSelected = false;
+                    });
+                  },
+                  child: DateDayWidget(
+                    date: tomorrow.day.toString(),
+                    day: getWeekday(dayNumber: tomorrow.weekday),
+                    month: getMonthName(tomorrow.month),
+                    selected: tomorrowSelected,
+                  ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    todaySelected = false;
-                    yesterdaySelected = false;
-                    beforeYesterdaySelected = false;
-                    tomorrowSelected = false;
-                    tomorrowAfterSelected = true;
-                    liveSelected = false;
-                  });
-                },
-                child: DateDayWidget(
-                  date: tomorrowAfter.day.toString(),
-                  day: getWeekday(dayNumber: tomorrowAfter.weekday),
-                  month: getMonthName(tomorrowAfter.month),
-                  selected: tomorrowAfterSelected,
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      todaySelected = false;
+                      yesterdaySelected = false;
+                      beforeYesterdaySelected = false;
+                      tomorrowSelected = false;
+                      tomorrowAfterSelected = true;
+                      liveSelected = false;
+                    });
+                  },
+                  child: DateDayWidget(
+                    date: tomorrowAfter.day.toString(),
+                    day: getWeekday(dayNumber: tomorrowAfter.weekday),
+                    month: getMonthName(tomorrowAfter.month),
+                    selected: tomorrowAfterSelected,
+                  ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => CalendarDatePage()));
-                },
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.calendar_today_outlined,
-                      color: MyColors.grey300,
-                    ),
-                    Icon(
-                      Icons.arrow_drop_down,
-                      color: MyColors.grey300,
-                    )
-                  ],
+                /*GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => CalendarDatePage()));
+                  },
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.calendar_today_outlined,
+                        color: MyColors.grey300,
+                      ),
+                      Icon(
+                        Icons.arrow_drop_down,
+                        color: MyColors.grey300,
+                      )
+                    ],
+                  ),
+                ),*/
+              ],
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 6),
+              height: 1,
+              width: MediaQuery.of(context).size.width,
+              color: MyColors.white,
+            ),
+            Column(
+              children: [
+                FootballEventWidget(
+                  eventName: 'World Cup',
+                  eventFlag: 'France',
+                  eventRound: 'CAF Qualification: 2nd Round: Group I',
+                  team1Flag: 'Holland',
+                  team2Flag: 'Italy',
+                  team1Name: 'Holland',
+                  team2Name: 'Italy',
+                  team1Goals: '1',
+                  team2Goals: '2',
+                  matchTime: "FT",
                 ),
-              ),
-            ],
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-          ),
-          /* ElevatedButton(
-            child: Text("Click me"),
-            onPressed: () {
-              print("beforeYesterday: $beforeYesterdaySelected");
-              print("Yesterday: $yesterdaySelected");
-              print("Today: $todaySelected");
-              print("Tomorrow: $tomorrowSelected");
-              print("TomorrowAfter: $tomorrowAfterSelected");
-            },
-          )*/
-        ],
-      )),
+                FootballEventWidget(
+                  eventName: 'England',
+                  eventFlag: 'Germany',
+                  eventRound: 'EFL Trophy North: Group F',
+                  team1Flag: 'Spain',
+                  team2Flag: 'France',
+                  team1Name: 'Sunderland',
+                  team2Name: 'Manchester United',
+                  team1Goals: '',
+                  team2Goals: '',
+                  matchTime: "23:00",
+                ),
+                FootballEventWidget(
+                  eventName: 'England',
+                  eventFlag: 'Germany',
+                  eventRound: 'EFL Trophy North: Group E',
+                  team1Flag: 'Holland',
+                  team2Flag: 'Italy',
+                  team1Name: 'Holland',
+                  team2Name: 'Italy',
+                  team1Goals: '',
+                  team2Goals: '',
+                  matchTime: "23:00",
+                ),
+                FootballEventWidget(
+                  eventName: 'World Cup',
+                  eventFlag: 'France',
+                  eventRound: 'CAF Qualification: 2nd Round: Group I',
+                  team1Flag: 'Holland',
+                  team2Flag: 'Italy',
+                  team1Name: 'Holland',
+                  team2Name: 'Italy',
+                  team1Goals: '1',
+                  team2Goals: '2',
+                  matchTime: "FT",
+                ),
+                FootballEventWidget(
+                  eventName: 'England',
+                  eventFlag: 'Germany',
+                  eventRound: 'EFL Trophy North: Group F',
+                  team1Flag: 'Spain',
+                  team2Flag: 'France',
+                  team1Name: 'Sunderland',
+                  team2Name: 'Manchester United',
+                  team1Goals: '',
+                  team2Goals: '',
+                  matchTime: "23:00",
+                ),
+                FootballEventWidget(
+                  eventName: 'England',
+                  eventFlag: 'Germany',
+                  eventRound: 'EFL Trophy North: Group E',
+                  team1Flag: 'Holland',
+                  team2Flag: 'Italy',
+                  team1Name: 'Holland',
+                  team2Name: 'Italy',
+                  team1Goals: '',
+                  team2Goals: '',
+                  matchTime: "23:00",
+                ),
+              ],
+            ),
+          ],
+        )),
+      ),
     );
   }
 }
