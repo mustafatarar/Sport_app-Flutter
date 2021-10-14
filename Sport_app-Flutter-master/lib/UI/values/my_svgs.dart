@@ -1,0 +1,3 @@
+class MySvgs {
+  MySvgs._();
+}
