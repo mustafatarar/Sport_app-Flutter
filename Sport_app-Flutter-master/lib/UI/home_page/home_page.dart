@@ -2,10 +2,12 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sportapp/UI/Fixture%20&%20Result/Fixture.dart';
 import 'package:sportapp/UI/News/News.dart';
 import 'package:sportapp/UI/calendar_date_page/calendar_date_page.dart';
 import 'package:sportapp/UI/home_page/components/football_event_widget.dart';
 import 'package:sportapp/UI/values/values.dart';
+import 'package:sportapp/widget/Drawer.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -32,7 +34,22 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.grey[700],
-        title: Text(Strings.home_title),
+        leading: IconButton(
+             
+    icon: Icon(Icons.menu, 
+    size: 25,
+    
+    color: Color(0xffFFFFFF)), // set your color here
+    onPressed: () {
+     Navigator.push(context, MaterialPageRoute(builder: (context)=>MyDrawer()));
+    },
+  ),
+        titleSpacing: 90,
+
+        title: Text("TopBongaDa"),
+        actions: [
+          Icon(Icons.search,size: 25,)
+        ],
       ),
       backgroundColor: Colors.grey[700],
       body: SingleChildScrollView(
@@ -177,7 +194,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 GestureDetector(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>News()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Fixture()));
                   },
                   child: 
                 
@@ -193,6 +210,11 @@ class _HomePageState extends State<HomePage> {
                   team2Goals: '2',
                   matchTime: "FT",
                 )),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Fixture()));
+                  },
+                  child: 
                 FootballEventWidget(
                   eventName: 'England',
                   eventFlag: 'Germany',
@@ -204,7 +226,12 @@ class _HomePageState extends State<HomePage> {
                   team1Goals: '',
                   team2Goals: '',
                   matchTime: "23:00",
-                ),
+                )),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Fixture()));
+                  },
+                  child: 
                 FootballEventWidget(
                   eventName: 'England',
                   eventFlag: 'Germany',
@@ -216,7 +243,12 @@ class _HomePageState extends State<HomePage> {
                   team1Goals: '',
                   team2Goals: '',
                   matchTime: "23:00",
-                ),
+                )),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Fixture()));
+                  },
+                  child: 
                 FootballEventWidget(
                   eventName: 'World Cup',
                   eventFlag: 'France',
@@ -228,7 +260,12 @@ class _HomePageState extends State<HomePage> {
                   team1Goals: '1',
                   team2Goals: '2',
                   matchTime: "FT",
-                ),
+                )),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Fixture()));
+                  },
+                  child: 
                 FootballEventWidget(
                   eventName: 'England',
                   eventFlag: 'Germany',
@@ -240,7 +277,12 @@ class _HomePageState extends State<HomePage> {
                   team1Goals: '',
                   team2Goals: '',
                   matchTime: "23:00",
-                ),
+                )),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Fixture()));
+                  },
+                  child: 
                 FootballEventWidget(
                   eventName: 'England',
                   eventFlag: 'Germany',
@@ -252,7 +294,7 @@ class _HomePageState extends State<HomePage> {
                   team1Goals: '',
                   team2Goals: '',
                   matchTime: "23:00",
-                ),
+                )),
               ],
             ),
           ],

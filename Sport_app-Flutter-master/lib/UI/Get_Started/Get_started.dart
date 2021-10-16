@@ -28,6 +28,9 @@ class _GetStartedState extends State<GetStarted> {
        )
       ),
       child:
+      SingleChildScrollView(
+        child: 
+      
       Center(
         child: 
       
@@ -105,6 +108,6 @@ Container( height: size.height*0.070,
       
       )
       
-    );
+    ));
   }
 }

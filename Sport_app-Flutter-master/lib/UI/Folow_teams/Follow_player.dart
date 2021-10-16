@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sportapp/UI/home_navigation.dart';
 import 'package:sportapp/UI/home_page/home_page.dart';
 
 class FollowPlayer extends StatefulWidget {
@@ -525,32 +526,30 @@ class _FollowPlayerState extends State<FollowPlayer> {
       
         ) ],
               ))),
-              SizedBox(height: 50,),
-
-Container( height: size.height*0.070,
-      width: size.width*0.9,
-
-      
-      decoration: BoxDecoration(
-        color: Colors.yellow[900],
-        borderRadius: BorderRadius.circular(10)
-      ),
-      child: 
-   
-     MaterialButton(onPressed: (){
-       Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
-     },
-     child: Text("Next",
-     style: TextStyle(
-         color: Colors.black,
-         fontSize: 20,
-         
-      ),),
-
-     )
-
-
-     ) ,
+                SizedBox(
+              height: 50,
+            ),
+            Container(
+                height: size.height * 0.070,
+                width: size.width * 0.9,
+                decoration: BoxDecoration(
+                    color: Colors.yellow[900],
+                    borderRadius: BorderRadius.circular(10)),
+                child: MaterialButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => HomeNavigation()));
+                  },
+                  child: Text(
+                    "Next",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                    ),
+                  ),
+                )),
       
 
                 ],
