@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sportapp/UI/Splash_screen.dart';
 import 'package:sportapp/UI/calendar_date_page/calendar_date_page.dart';
 import 'package:sportapp/UI/home_page/components/football_event_widget.dart';
 import 'package:sportapp/UI/values/values.dart';
